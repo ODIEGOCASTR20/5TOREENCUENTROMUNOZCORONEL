@@ -3,36 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <title>5to Reencuentro Familia Muñoz Coronel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-    <div class="header">
-        <h1>5to Reencuentro</h1>
-        <h2>Familia Muñoz Coronel</h2>
-    </div>
+<!-- 🔝 HERO -->
+<section class="hero">
+    <!-- Fondo difuminado -->
+    <div class="hero-bg"></div>
 
-    <div class="details">
-        <p>📅 Fecha: <strong>20 de Julio de 2026</strong></p>
-        <p>⏰ Hora: <strong>12:00 PM</strong></p>
-        <p>📍 Lugar: <strong>Por confirmar</strong></p>
-    </div>
+    <img src="assets/img/logo.png" class="logo" alt="Logo Familiar">
 
-    <div class="countdown">
-        <h3>Faltan</h3>
-        <div class="time">
-            <div><span id="days">00</span><small>Días</small></div>
-            <div><span id="hours">00</span><small>Horas</small></div>
-            <div><span id="minutes">00</span><small>Min</small></div>
-            <div><span id="seconds">00</span><small>Seg</small></div>
+    <h1>5to Reencuentro Familiar</h1>
+    <h2>Familia Muñoz Coronel</h2>
+
+    <div id="contador"></div>
+</section>
+
+<!-- 📸 GALERÍA / CARRUSEL -->
+<section class="galeria">
+    <h3>Recuerdos de Nuestros Reencuentros</h3>
+
+    <div class="carousel multi">
+
+            <!-- FILA 1 → DERECHA -->
+            <div class="carousel-row right">
+                <div class="carousel-track">
+                    <img src="assets/img/recuerdo1.jpg">
+                    <img src="assets/img/recuerdo2.jpg">
+                    <img src="assets/img/recuerdo7.jpg">
+                    <img src="assets/img/recuerdo1.jpg">
+                     <img src="assets/img/recuerdo2.jpg">
+                     <img src="assets/img/recuerdo2.jpg">
+                     <img src="assets/img/recuerdo7.jpg">
+                </div>
+            </div>
+
+            <!-- FILA 2 → IZQUIERDA -->
+            <div class="carousel-row left">
+                <div class="carousel-track">
+                <img src="assets/img/recuerdo4.jpg">
+                    <img src="assets/img/recuerdo5.jpg">
+                    <img src="assets/img/recuerdo6.jpg">
+                    <img src="assets/img/recuerdo7.jpg">
+                     <img src="assets/img/recuerdo4.jpg">
+                     <img src="assets/img/recuerdo5.jpg">
+                     <img src="assets/img/recuerdo6.jpg">
+                    <img src="assets/img/recuerdo7.jpg">
+
+
+                </div>
+            </div>
+
+            <!-- FILA 3 → DERECHA -->
+            <div class="carousel-row right">
+                <div class="carousel-track">
+                    <img src="assets/img/recuerdo8.jpg">
+                    <img src="assets/img/recuerdo9.jpg">
+                    <img src="assets/img/recuerdo10.jpg">
+                    <img src="assets/img/recuerdo8.jpg">
+                   <img src="assets/img/recuerdo9.jpg">
+                   <img src="assets/img/recuerdo10.jpg">
+                   <img src="assets/img/recuerdo8.jpg">
+                   
+            </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 
-    <div class="footer">
-        <p>❤️ La familia es nuestro mayor tesoro ❤️</p>
-    </div>
-</div>
+    <!-- ❤️ MENSAJE -->
+    <section class="mensaje hidden">
+        <img src="assets/img/insignia.png" class="insignia">
+
+        <p class="line">
+            <strong>Querida familia:</strong>
+        </p>
+
+        <p class="line">
+            Con mucha alegría y emoción quiero invitarlos a celebrar juntos nuestro
+            <strong>Quinto Reencuentro Familiar</strong>, que se llevará a cabo este
+            sábado 7 y domingo 8 de febrero.
+        </p>
+
+        <p class="line">
+            Serán dos días muy especiales para volver a abrazarnos, reencontrarnos y
+            compartir esos momentos que solo la familia sabe regalar.
+        </p>
+
+        <p class="line">
+            Este reencuentro no es solo una fecha en el calendario, es una oportunidad
+            para recordar nuestras raíces, fortalecer los lazos que nos unen y crear
+            nuevos recuerdos llenos de risas, anécdotas y cariño.
+        </p>
+
+        <p class="line">
+            Cada uno de ustedes es una parte fundamental de esta historia que seguimos
+            construyendo juntos.
+        </p>
+
+        <p class="line">
+            Los esperamos con el corazón abierto para disfrutar de la compañía, la
+            unión y el amor que nos caracteriza como familia.
+        </p>
+
+        <p class="line">
+            ¡No falten! Porque la familia completa hace que este reencuentro sea
+            verdaderamente especial.
+        </p>
+
+        <p class="line firma">
+            Con mucho cariño,<br>
+            <strong>Familia Muñoz Coronel</strong>
+        </p>
+    </section>
+
+
+  <!-- 📅 CRONOGRAMA -->
+  <section class="cronograma hidden">
+      <h2 class="titulo-crono">Programa Quinto Reencuentro Familiar</h2>
+  
+      <!-- SÁBADO -->
+      <div class="dia">
+          <h3>Sábado 07 de Febrero</h3>
+  
+          <ul>
+              <li><span>8:00 a.m.</span> Misa</li>
+              <li><span>9:00 a.m.</span> Desayuno familiar – Casa de Jesús Muñoz</li>
+              <li><span>9:45 a.m.</span> Traslado a Casa Lirios</li>
+              <li><span>10:15 a.m.</span> Inicio de Gincana – PequeManías Show</li>
+              <li><span>1:00 p.m.</span> Almuerzo familiar – Casa Lirios</li>
+              <li><span>4:30 p.m.</span> Fin de gincana y retorno</li>
+              <li><span>8:00 p.m.</span> Cena familiar – Casa de Jesús Muñoz</li>
+              <li><span>9:30 p.m.</span> Traslado a Casa Lirios (Fiesta de Gala)</li>
+              <li><span>9:50 p.m.</span> Quema de 02 misileras</li>
+              <li><span>10:00 p.m.</span> Fiesta de Gala – Orquesta Digital (Monsefú)</li>
+          </ul>
+      </div>
+  
+      <!-- DOMINGO -->
+      <div class="dia">
+          <h3>Domingo 08 de Febrero</h3>
+  
+          <ul>
+              <li><span>8:00 a.m.</span> Traslado Casa Lirios → Casa Jesús Muñoz</li>
+              <li><span>8:45 a.m.</span> Desayuno familiar</li>
+              <li><span>10:00 a.m.</span> Sustento de gastos y evaluación</li>
+              <li><span>12:30 p.m.</span> Almuerzo familiar</li>
+              <li><span>1:30 p.m.</span> Tarde de baile con banda</li>
+              <li><span>7:30 p.m.</span> Cena familiar</li>
+          </ul>
+      </div>
+  </section>
+
+
+
+<!-- 📍 EVENTO -->
+<section class="evento">
+    <h3>Datos del Evento</h3>
+    <p>📅 Fecha: 08 y 09  de Febrero de 2026</p>
+    <p>🕒 Hora: 08:00 AM</p>
+    <p>📍 Lugar: Casa de la Familia Muñoz Palma </p>
+</section>
+
+<!-- 🔚 FOOTER -->
+<footer>
+    <p>Familia Muñoz Palma © 2026</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
