@@ -1,13 +1,54 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+// 🎯 FECHA DEL EVENTO
+const fechaEvento = new Date("febrero 07, 2026 08:00:00").getTime();
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
+
+    if (diferencia <= 0) {
+        document.getElementById("contador").innerHTML = "¡Hoy es el gran día!";
+        return;
     }
-}
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById("contador").innerHTML =
+        `${dias} días · ${horas} h · ${minutos} min · ${segundos} s`;
+}, 1000);
+
+// 🎬 Animación al hacer scroll (Mensaje)
+const mensaje = document.querySelector(".mensaje");
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                mensaje.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.3
+    }
+);
+
+observer.observe(mensaje);
+// 📅 Animación cronograma
+const cronograma = document.querySelector(".cronograma");
+
+const observerCrono = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                cronograma.classList.add("show");
+            }
+        });
+    },
+    { threshold: 0.25 }
+);
+
+observerCrono.observe(cronograma);
+
