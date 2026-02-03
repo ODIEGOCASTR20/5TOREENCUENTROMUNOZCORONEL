@@ -1,72 +1,361 @@
-body {
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1a1a1a, #5a0f1b);
-    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 40px 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
-.card {
-    background: #111;
+/* Fondo difuminado */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/img/fondofamiliar.jpg");
+ /* ajusta si tu ruta es distinta */
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 0;
+}
+
+/* Contenido encima del fondo */
+.hero * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo */
+.logo {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+/* Títulos */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: #ffd700;
+}
+
+.hero h2 {
+    font-weight: 400;
     color: #fff;
-    width: 360px;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border: 2px solid gold;
+    margin-bottom: 25px;
 }
 
-.header h1 {
-    margin: 0;
-    color: gold;
-    font-size: 28px;
-}
-
-.header h2 {
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: normal;
-}
-
-.details p {
-    margin: 8px 0;
-}
-
-.countdown h3 {
-    margin-top: 25px;
-    color: gold;
-}
-
-.time {
+/* =========================
+   CONTADOR (si usas cajas)
+========================= */
+.contador {
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+    gap: 20px;
+    margin-top: 10px;
 }
 
-.time div {
-    background: #222;
-    padding: 10px;
-    border-radius: 10px;
-    width: 70px;
+.time-box {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 15px 20px;
+    border-radius: 15px;
+    min-width: 90px;
 }
 
-.time span {
+.time-box span {
     display: block;
-    font-size: 24px;
-    font-weight: bold;
-    color: gold;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffd700;
 }
 
-.time small {
-    font-size: 12px;
+.time-box small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #fff;
 }
 
-.footer {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #ddd;
+/* =========================
+   GALERÍA / CARRUSEL MULTI
+========================= */
+.galeria {
+    padding: 60px 20px;
+    background: #fff0e5;
 }
+
+/* Contenedor general */
+.carousel.multi {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Cada fila */
+.carousel-row {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* Imágenes */
+.carousel-track img {
+    width: 240px;
+    border-radius: 15px;
+    border: 3px solid #ffd700;
+}
+
+/* Dirección derecha */
+.carousel-row.right .carousel-track {
+    animation: scroll-right 25s linear infinite;
+}
+
+/* Dirección izquierda */
+.carousel-row.left .carousel-track {
+    animation: scroll-left 25s linear infinite;
+}
+
+/* Animaciones */
+@keyframes scroll-right {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* =========================
+   MENSAJE
+========================= */
+.mensaje {
+    padding: 60px 20px;
+    background: #fff5e6;
+}
+
+.insignia {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   EVENTO
+========================= */
+.evento {
+    padding: 50px 20px;
+    background: #ffe0b2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding: 20px;
+    background: #c0392b;
+    color: white;
+    font-size: 0.8rem;
+}
+/* =========================
+   MENSAJE ANIMADO
+========================= */
+.mensaje {
+    padding: 80px 20px;
+    background: #fff5e6;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Estado oculto inicial */
+.mensaje.hidden {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+/* Cuando entra en pantalla */
+.mensaje.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Insignia */
+.insignia {
+    width: 110px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 1s ease;
+}
+
+.mensaje.show .insignia {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Párrafos */
+.mensaje p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+/* Animación por líneas */
+.line {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+/* Activación progresiva */
+.mensaje.show .line {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Delay escalonado */
+.mensaje.show .line:nth-child(2) { transition-delay: 0.2s; }
+.mensaje.show .line:nth-child(3) { transition-delay: 0.4s; }
+.mensaje.show .line:nth-child(4) { transition-delay: 0.6s; }
+.mensaje.show .line:nth-child(5) { transition-delay: 0.8s; }
+.mensaje.show .line:nth-child(6) { transition-delay: 1s; }
+.mensaje.show .line:nth-child(7) { transition-delay: 1.2s; }
+.mensaje.show .line:nth-child(8) { transition-delay: 1.4s; }
+
+/* Firma */
+.firma {
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+/* =========================
+   CRONOGRAMA
+========================= */
+.cronograma {
+    padding: 80px 20px;
+    background: #fff;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Oculto inicial */
+.cronograma.hidden {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+/* Visible */
+.cronograma.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease;
+}
+
+.titulo-crono {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #c0392b;
+}
+
+/* Día */
+.dia {
+    margin-bottom: 50px;
+}
+
+.dia h3 {
+    font-size: 1.4rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Lista */
+.dia ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dia li {
+    background: #fff5e6;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.dia li span {
+    font-weight: 600;
+    color: #c0392b;
+    min-width: 90px;
+}
+
+/* Activación */
+.cronograma.show .dia h3 {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.6s ease;
+}
+
+.cronograma.show .dia li {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.6s ease;
+}
+
+/* Animación escalonada */
+.cronograma.show .dia li:nth-child(1) { transition-delay: 0.1s; }
+.cronograma.show .dia li:nth-child(2) { transition-delay: 0.2s; }
+.cronograma.show .dia li:nth-child(3) { transition-delay: 0.3s; }
+.cronograma.show .dia li:nth-child(4) { transition-delay: 0.4s; }
+.cronograma.show .dia li:nth-child(5) { transition-delay: 0.5s; }
+.cronograma.show .dia li:nth-child(6) { transition-delay: 0.6s; }
+.cronograma.show .dia li:nth-child(7) { transition-delay: 0.7s; }
+.cronograma.show .dia li:nth-child(8) { transition-delay: 0.8s; }
+.cronograma.show .dia li:nth-child(9) { transition-delay: 0.9s; }
+.cronograma.show .dia li:nth-child(10) { transition-delay: 1s; }
+
+
+
+
+
+
+
+
