@@ -1,24 +1,53 @@
-const eventDate = new Date("July 20, 2026 12:00:00").getTime();
+// 🎯 FECHA DEL EVENTO
+const fechaEvento = new Date("febrero 07, 2026 08:00:00").getTime();
 
-const countdown = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
 
-    if (distance < 0) {
-        clearInterval(countdown);
-        document.querySelector(".countdown").innerHTML =
-            "<h3>🎉 ¡Hoy es el gran día! 🎉</h3>";
+    if (diferencia <= 0) {
+        document.getElementById("contador").innerHTML = "¡Hoy es el gran día!";
         return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-
+    document.getElementById("contador").innerHTML =
+        `${dias} días · ${horas} h · ${minutos} min · ${segundos} s`;
 }, 1000);
+
+// 🎬 Animación al hacer scroll (Mensaje)
+const mensaje = document.querySelector(".mensaje");
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                mensaje.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.3
+    }
+);
+
+observer.observe(mensaje);
+// 📅 Animación cronograma
+const cronograma = document.querySelector(".cronograma");
+
+const observerCrono = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                cronograma.classList.add("show");
+            }
+        });
+    },
+    { threshold: 0.25 }
+);
+
+observerCrono.observe(cronograma);
